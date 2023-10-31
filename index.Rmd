@@ -1,0 +1,18 @@
+---
+title: "Aung's Academic and Professional Experience Website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Welcome to My Personal Website
+
+Hello! I'm Aung.Welcome to my personal website where I share my academic and professional journey.
+
+![](https://media.giphy.com/media/H7kfFDvD9HSYGRbvid/giphy.gif)
+
+## Academic and Professional Experience
+
+* [My Resume](Aung Resume.pdf)
+
