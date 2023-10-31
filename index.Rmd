@@ -8,7 +8,7 @@ output:
 
 ## Welcome to My Personal Website
 
-Hello! I'm Aung.Welcome to my personal website where I share my academic and professional journey.
+Hello! I'm Aung.Here is my personal website where I share my academic and professional journey.
 
 ![](https://media.giphy.com/media/H7kfFDvD9HSYGRbvid/giphy.gif)
 
