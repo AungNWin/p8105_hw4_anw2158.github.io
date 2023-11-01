@@ -1,18 +1,20 @@
 ---
-title: "Plotly for Problem 2"
+title: "Dashboard"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
 ---
 
-```{r echo=FALSE, warning=FALSE, include=FALSE}
+```{r setup, include=FALSE}
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
+library(flexdashboard)
 ```
 
-```{r}
+```{r echo = FALSE}
 data("instacart")
 instacart =
   instacart |>
@@ -26,9 +28,27 @@ instacart =
   select(order_dow, order_hour_of_day, days_since_prior_order, reordered, aisle)
 ```
 
-## Scatter plot: Relationship between the hour of the day the order was placed and the days since the prior order
+Column {data-width=650}
+-----------------------------------------------------------------------
 
-```{r warning=FALSE}
+### Chart A
+
+```{r echo = FALSE}
+instacart |> 
+  count(aisle)|>
+  mutate(aisle = fct_reorder(aisle,n))|>
+  plot_ly(
+    x=~aisle, y =~n, color = ~aisle,
+    type ="bar", colors = "viridis"
+  )
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r warning = FALSE , echo = FALSE}
 instacart |>
 plot_ly(
     x = ~order_hour_of_day,
@@ -51,21 +71,9 @@ plot_ly(
   )
 ```
 
-## Bar Plot
+### Chart C
 
-```{r}
-instacart |> 
-  count(aisle)|>
-  mutate(aisle = fct_reorder(aisle,n))|>
-  plot_ly(
-    x=~aisle, y =~n, color = ~aisle,
-    type ="bar", colors = "viridis"
-  )
-```
-
-## Violin Plot
-
-```{r}
+```{r echo = FALSE}
 instacart |>
   mutate(aisle = fct_reorder(aisle, order_hour_of_day)) |>
   plot_ly(
@@ -73,6 +81,4 @@ instacart |>
     type = "violin", colors = "viridis"
   )
 ```
-
-
 
